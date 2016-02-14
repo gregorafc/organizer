@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  done: false
+  task_start: 2016-02-14
+  task_finish: 2016-02-14
+  board_id: 
+
+two:
+  title: MyString
+  done: false
+  task_start: 2016-02-14
+  task_finish: 2016-02-14
+  board_id: 
