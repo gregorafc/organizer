@@ -1,3 +1,16 @@
 <h1><%= @board.title %> </h1>
 
+<%= link_to 'New task', new_board_task_path(@board) %>
+
+<% @tasks.each do |task| %>
+  <div>
+    <%= task.title %>
+    <%= link_to 'Show', board_task_path(task.board, task) %>
+    <%= link_to 'Edit', edit_board_task_path(task.board, task) %>
+    <%= link_to 'Delete task', board_task_path(task.board, task), method: :delete,
+                                          data: { confirm: 'Are you sure?'} %>
+  </div>  
+
+<% end %>
+
 <%= link_to 'Back', boards_path %>

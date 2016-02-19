@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :boards
+  resources :boards do
+    resources :tasks
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

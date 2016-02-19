@@ -1,0 +1,35 @@
+<%= form_for([@board, @task]) do |f| %>
+    
+  <% if @task.errors.any? %>
+    <div>
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :task_start %>
+    <%= f.date_field :task_start %>
+  </div>
+
+  <div>
+    <%= f.label :task_finish %>
+    <%= f.date_field :task_finish %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
