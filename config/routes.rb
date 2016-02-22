@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  root 'landings#index'
+
+  resources :landings, only: [:index]
+  resources :dashboards, only: [:index]
+
   resources :boards do
     resources :tasks
   end
