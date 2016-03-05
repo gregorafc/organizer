@@ -1,16 +1,52 @@
 <div class='container-fluid'>
-
-  <h1>Boards</h1>
-
-  <% @boards.each do |board| %>
-    <div>
-      <%= board.title %>
-      <%= link_to 'Show', board %>
-      <%= link_to 'Edit title', edit_board_path(board) %>
-      <%= link_to 'Destroy board', board, method: :delete,
-                                            data: { confirm: 'Are you sure?'} %>
+  <div class='row'>
+    <div class='col-lg-12'>
+      <h1 class='page-header'>Boards</h1>
     </div>
-  <% end %>
+  </div>
 
-  <%= link_to 'New board', new_board_path %>
+  <div class='container-fluid'>
+    <div class='row'>
+      <div class='col-ld-12'>
+        <%= link_to 'New board', new_board_path, class: 'btn btn-outline btn-primary btn-lg btn-block' %>
+      </div>
+    </div>
+  </div>
+
+</br>
+
+
+  <div class='row'>
+
+    <% @boards.each do |board| %>
+        <div class='col-lg-3 col-md-6'>
+          <div class='panel panel-primary'>
+            <div class='panel-heading'>
+      <%= link_to board, class: 'board' do %>
+              <div class='row'>
+                <div class='col-xs-3'>
+                  <i class="fa fa-tasks fa-5x"></i>
+                </div>
+                <div class='col-xs-9 text-right'>
+                  <div><%= board.title %></div>
+                  <div>Tasks to do: <%= board.tasks.count %></div>
+                </div>
+              </div>
+      <% end %>
+            </div>
+            <div class='panel-footer'>
+              <%= link_to 'Show', board, class: 'pull-left' %>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class='clearfix'></div>
+            </div>
+
+            <div class='panel-footer'>
+              <%= link_to 'Destroy board', board, method: :delete, data: { confirm: 'Are you sure?'} %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+
 </div>
